@@ -1,0 +1,36 @@
+.panel-heading {
+  background-color: $brand-primary;
+}
+
+.panel-title {
+  color: #FFF;
+}
+
+.panel-body {
+  margin-left: -1em;
+  margin-top: -1em;
+}
+
+i {
+  color: $brand-primary;
+}
+
+a {
+  cursor: pointer;
+}
+
+a:hover {
+  color: $brand-primary;
+}
+
+a:focus {
+  color: $brand-primary;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+    margin: .5em 0em 1em -1.5em;
+}
