@@ -1,0 +1,26 @@
+<div class="panel b">
+  <div class="panel-heading">
+    <h1 class="h4 panel-title" ng-bind="::c.options.title">
+      <fa ng-if="c.options.glyph" name="{{c.options.glyph}}" />
+    </h1>
+  </div>
+  <div class="panel-body">
+    <script type="text/ng-template" id="categoryTree">
+    	<div ng-if="category.count > 0 && !category.hidden">
+        	<i ng-if="category.hasSubs && !category.open" class="fa fa-folder" aria-hidden="true" ng-click="collapse(category)"></i>
+         	<i ng-if="category.hasSubs && category.open" class="fa fa-folder-open" aria-hidden="true" ng-click="collapse(category)"></i>
+         	<a ng-if="category.hasSubs" ng-click="collapse(category)">{{::category.label}}</a>  
+            <a ng-if="!category.hasSubs" ng-href="?id=kb_category&kb_category={{::category.value}}" ng-click="collapse(category)">{{::category.label}}
+            	<a ng-if="category.count > 0" class="label label-as-badge label-primary pull-right" ng-href="?id=kb_category&kb_category={{::category.value}}">{{::category.count}}</a>
+      		</a>
+         	<ul ng-if="category.categories">
+         		<li ng-repeat="category in category.categories" ng-include="'categoryTree'"></li>
+      		</ul>
+      	</div>
+    </script>
+    <ul>
+        <li ng-repeat="category in categories" ng-include="'categoryTree'"></li>
+    </ul>
+    <div ng-if="totalCount == 0"><h4 id="none">None</h4></div>
+  </div>
+</div>
